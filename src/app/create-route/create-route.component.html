@@ -1,0 +1,32 @@
+<h2>Create Route</h2>
+<form>
+   <div class="from-group">
+    <label for="origin">Origin</label>
+      <select [(ngModel)]="origin" 
+              name="origin">
+          <option 
+              *ngFor="let origin of locations" 
+              value= {{origin}}> {{origin}}
+          </option>
+      </select>
+   </div>
+   <div class="from-group">
+    <label for="destination">Destination</label>
+      <select [(ngModel)]="destination" 
+              name="destination">
+          <option 
+              *ngFor="let destination of locations" 
+              value= {{destination}}> {{destination}}
+          </option>
+      </select>
+   </div>
+<button class="btn btn-primary" (click)="createRouteBtn()"  >Submit</button>
+</form>
+
+<div *ngIf="showCreatedRouteResult">
+  The route {{createdRouteName}} has been successfully created.
+</div>
+
+<div *ngIf="showCreatedRouteResultFailed">
+  The route creation failed. Try again.
+</div>

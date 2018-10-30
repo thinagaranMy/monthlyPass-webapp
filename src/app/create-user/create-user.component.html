@@ -1,0 +1,17 @@
+<button *ngIf="createUserRole" class="btn btn-primary" (click)="createUserFnct()">Create User</button>
+<button *ngIf="scanPassRole" class="btn btn-primary" (click)="scanPassFnct()">Scan Pass</button>
+<button *ngIf="createRouteRole" class="btn btn-primary" (click)="createRouteFnct()">Create Route</button>
+<button *ngIf="createSubcriptionRole"  class="btn btn-primary" (click)="subscribeFnct()">Subscribe</button><br>
+<div *ngIf="createUser">
+    <create-user-form ></create-user-form>
+</div>
+<br>
+<div *ngIf="scanPass">
+    <scan-pass></scan-pass>
+</div>
+<div *ngIf="createRoute">
+    <create-route ></create-route>
+</div>
+<div *ngIf="subscribe">
+    <subscribe ></subscribe>
+</div>

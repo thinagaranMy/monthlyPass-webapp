@@ -1,0 +1,47 @@
+<form>
+   <div class="from-group">
+    <label for="origin">User Name</label>
+      <select [(ngModel)]="user" 
+              name="user">
+          <option 
+              *ngFor="let user of users" 
+              value= {{user.cardId}}> {{user.name}}
+          </option>
+      </select>
+   </div>
+   <div class="from-group">
+    <label for="route">Route</label>
+      <select [(ngModel)]="route" 
+              name="route">
+          <option 
+              *ngFor="let route of routes" 
+              value= {{route.routeName}}> {{route.routeName}}
+          </option>
+      </select>
+   </div>
+   <div class="from-group">
+    <label for="month">Month</label>
+      <select [(ngModel)]="month" 
+              name="month">
+          <option 
+              *ngFor="let month of months" 
+              value= {{month}}> {{month}}
+          </option>
+      </select>
+   </div>
+   <div class="from-group">
+    <label for="year">Year</label>
+      <select [(ngModel)]="year" 
+              name="year">
+          <option 
+              *ngFor="let year of years" 
+              value= {{year}}> {{year}}
+          </option>
+      </select>
+   </div>
+<button class="btn btn-primary" (click)="createSubscription()"  >Submit</button>
+</form>
+
+<div *ngIf="showSubscriptionSuccessBool">
+    The subscription for route {{successRoute}} is successful for the user  {{successName}} for the month {{successMonth}}
+</div>

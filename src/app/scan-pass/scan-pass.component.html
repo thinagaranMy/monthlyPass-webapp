@@ -1,0 +1,48 @@
+<h2>Scan Your Monthly Pass</h2>
+<br>
+<div *ngIf="routeName===''">
+  <form>
+   <div class="from-group">
+    <label for="route">Route</label>
+      <select [(ngModel)]="route" 
+              name="route">
+          <option 
+              *ngFor="let route of routes" 
+              value= {{route.routeName}}> {{route.routeName}}
+          </option>
+      </select>
+   </div>
+<button class="btn btn-primary" (click)="chooseRoute()"  >Submit</button>
+</form>
+</div>
+
+
+<div *ngIf="routeName!==''">
+  <button class="btn btn-primary" (click)="resetRoute()"  >Select Route Again</button><br>
+  You are boarding route {{routeName}}
+  <form>
+    <div class="from-group">
+      <label for="cardnumber">Card Number</label>
+      <input  id="cardId" 
+              required
+              [(ngModel)]="cardId" 
+              name="cardId" 
+              type="text" 
+              class="form-control" >
+    </div>
+    <button class="btn btn-primary" (click)="submitButtonClicked()"  >Submit</button>
+  </form>
+
+  
+
+  <div *ngIf="tripCreated">
+    You are allowed to board the bus. <br>
+    <img src="../../assets/passIcon.png">
+  </div> 
+
+  <div *ngIf="!tripCreated && !initial">
+    You are not allowed to board the bus.<br>
+    <img src="../../assets/fail.png">
+  </div> 
+
+</div>

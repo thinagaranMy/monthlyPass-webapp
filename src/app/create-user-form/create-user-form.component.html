@@ -1,0 +1,50 @@
+<h2>Create Customer</h2>
+<form>
+   <div class="from-group">
+    <label for="cardnumber">Card Number</label>
+    <input  id="cardId" 
+            required
+            [(ngModel)]="cardId" 
+            name="cardId" 
+            type="text" 
+            class="form-control" >
+  </div>
+  <div class="from-group">
+    <label for="name">Name</label>
+    <input  required 
+            [(ngModel)]="name" 
+            name="name" 
+            id="name" 
+            class="form-control">
+    <!--<div class="alert alert-danger" *ngIf="name.touched && name.invalid">The customer name is required.</div>-->
+  </div>
+  <div class="from-group">
+    <label for="email">Email</label>
+    <input  id="email" 
+            required 
+            [(ngModel)]="email" 
+            name="email" 
+            type="text"
+            [pattern]="emailPattern"  
+            class="form-control">
+    <!--<div class="alert alert-danger" *ngIf="email.touched && email.invalid">The customer email is required and must be valid.</div>-->
+  </div>
+  <div class="from-group">
+    <label for="phoneNumber">Phone Number</label>
+    <input  id="phoneNumber" 
+            required 
+            type="text" 
+            [(ngModel)]="phoneNumber" 
+            name="phoneNumber" 
+            [pattern]="phonePattern" 
+            class="form-control">
+     <!--<div class="alert alert-danger" *ngIf="phoneNumber.touched && phoneNumber.invalid">
+       The customer phone number is required and must be valid.</div>-->
+  </div>
+  <button class="btn btn-primary" (click)="submitButtonClicked()"  >Submit</button>
+</form>
+
+
+<div *ngIf="userCreated">
+  The user {{createUserName}} has been successfully created.
+</div>
