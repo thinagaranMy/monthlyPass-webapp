@@ -1,7 +1,7 @@
-<button *ngIf="createUserRole" class="btn btn-primary" (click)="createUserFnct()">Create User</button>
-<button *ngIf="scanPassRole" class="btn btn-primary" (click)="scanPassFnct()">Scan Pass</button>
-<button *ngIf="createRouteRole" class="btn btn-primary" (click)="createRouteFnct()">Create Route</button>
-<button *ngIf="createSubcriptionRole"  class="btn btn-primary" (click)="subscribeFnct()">Subscribe</button><br>
+<button mat-raised-button color="primary" *ngIf="createUserRole" class="btn btn-primary" (click)="createUserFnct()">Create User</button>
+<button mat-raised-button color="primary" *ngIf="scanPassRole" class="btn btn-primary" (click)="scanPassFnct()">Scan Pass</button>
+<button mat-raised-button color="primary" *ngIf="createRouteRole" class="btn btn-primary" (click)="createRouteFnct()">Create Route</button>
+<button mat-raised-button color="primary" *ngIf="createSubcriptionRole"  class="btn btn-primary" (click)="subscribeFnct()">Subscribe</button><br>
 <div *ngIf="createUser">
     <create-user-form ></create-user-form>
 </div>

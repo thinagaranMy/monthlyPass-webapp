@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { KeycloakService } from '../keycloak/keycloak.service'
 
 @Component({
-  selector: 'create-user',
-  templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.css']
+  selector: 'main-nav',
+  templateUrl: './main-nav.component.html',
+  styleUrls: ['./main-nav.component.css'],
 })
-export class CreateUserComponent implements OnInit {
+export class MainNavComponent {
   roles: string[];
   createUser: boolean;
   scanPass: boolean;
@@ -18,8 +21,13 @@ export class CreateUserComponent implements OnInit {
   createRouteRole: boolean;
   createSubcriptionRole: boolean;
 
-  constructor(
-  ) { }
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
   ngOnInit() {
     this.intializeRoles();
     this.roles = KeycloakService.getRoles();
@@ -29,7 +37,6 @@ export class CreateUserComponent implements OnInit {
     this.subscribe =false;
     this.initializeMenu();
   }
-
   intializeRoles() {
     this.scanPassRole = false;
     this.createUserRole = false;
@@ -76,5 +83,8 @@ export class CreateUserComponent implements OnInit {
   test(){
     console.log('Test');
   }
+
+  signOut(): void {
+     KeycloakService.logout();
+   }
 }
- 
